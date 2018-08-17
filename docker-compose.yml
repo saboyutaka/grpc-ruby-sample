@@ -1,0 +1,13 @@
+version: '3'
+services:
+  grpc-ruby:
+    build:
+      context: docker/grcp-ruby
+    ports:
+      - 15000:5000
+    volumes:
+      - .:/app
+      - bundle-volume:/usr/local/bundle
+    command: "bundle exec ruby cmd/run_server.rb"
+volumes:
+  bundle-volume:
